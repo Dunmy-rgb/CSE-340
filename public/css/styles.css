@@ -43,7 +43,7 @@ body {
   justify-content: center;
   gap: 5rem;
   list-style: none;
-  padding: 0;
+  padding: 10px 0;
   margin: 0;
 }
 
@@ -56,22 +56,19 @@ body {
 
 .navigation li a:hover,
 .navigation li a:focus {
-  background-color: #005f99;
+  color: #005f99;
   cursor: pointer;
-  padding: 2px 7px;
-  border-radius: 4px;
 }
 
 /* index styling */
 
 h1 {
-  color: #0000;
+  color: #202020;
   font-size: 1.75rem;
 }
 
 /* === CTA Box Styles === */
 .cta-box {
-  /* background-color: #e9e6e6b5; */
   color: #00b8d9;
   border-radius: 10px;
   max-width: 190px;

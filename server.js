@@ -50,16 +50,6 @@ app.use(async (req, res, next) => {
   });
 });
 
-// Catch 500 errors
-app.use(async (err, req, res, next) => {
-  console.error(err.stack);
-  const nav = await utilities.getNav();
-  res.status(500).render("errors/500", {
-    title: "Server Error",
-    nav,
-  });
-});
-
 /* ***********************
  * Local Server Information
  * Values from .env (environment) file
