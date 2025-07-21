@@ -13,14 +13,6 @@ const pool = new Pool({
   },
 });
 
-pool.query("SELECT NOW()", (err, res) => {
-  if (err) {
-    console.error("Initial DB connection test failed:", err);
-  } else {
-    console.log("✅ DB connection success:", res.rows);
-  }
-});
-
 // Export the query function so it works the same everywhere
 module.exports = {
   async query(text, params) {
