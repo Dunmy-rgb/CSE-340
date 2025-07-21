@@ -7,10 +7,12 @@
         }
       },
       "previewLimit": 50,
-      "server": "localhost",
+      "server": "dpg-d1runnidbo4c738ee8u0-a.virginia-postgres.render.com",
+      "port": 5432,
       "driver": "PostgreSQL",
-      "name": "render.com",
-      "connectString": "postgresql://demo654:hxWfrJbeDoNT9nztETK8F0SajRHg7VAf@dpg-d1j76eh5pdvs73ctouf0-a.virginia-postgres.render.com/demo654"
+      "database": "cse340_db2_2e6e",
+      "name": "CSE340-db2",
+      "username": "cse340_db2_2e6e_user"
     }
   ]
 }

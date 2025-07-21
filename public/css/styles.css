@@ -10,7 +10,7 @@ a {
 }
 
 body {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
 }
 
 #wrapper {
@@ -30,18 +30,15 @@ body {
   font-size: 1.5rem;
 }
 
-.siteName a, #tools a {
+.siteName a,
+#tools a {
   color: #242332;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 500;
 }
 
-nav {
+.navigation {
   background-color: #242332;
-  padding: 0.4rem 0;
-}
-
-nav ul {
   display: flex;
   justify-content: center;
   gap: 5rem;
@@ -50,14 +47,15 @@ nav ul {
   margin: 0;
 }
 
-nav li {
+.navigation li {
   color: white;
   text-decoration: none;
   font-weight: 500;
+  padding: 0.4rem 0;
 }
 
-nav li:hover,
-nav li:focus {
+.navigation li:hover,
+.navigation li:focus {
   background-color: #005f99;
   cursor: pointer;
   padding: 2px 7px;
@@ -84,7 +82,7 @@ h1 {
   position: absolute;
   top: 50%;
   left: 87%;
-  transform: translate(-20%, -50%)
+  transform: translate(-20%, -50%);
 }
 
 .car {
@@ -164,7 +162,7 @@ h1 {
   border-radius: 8px;
   text-align: center;
   padding: 1rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s ease-in-out;
 }
 
@@ -285,4 +283,3 @@ h1 {
     font-size: 0.95rem;
   }
 }
-
