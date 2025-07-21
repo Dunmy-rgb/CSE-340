@@ -7,8 +7,9 @@ async function getClassifications() {
   return await pool.query("SELECT * FROM public.classification ORDER BY name");
 }
 
-module.exports = { getClassifications };
-
+/* ***************************
+ *  Get a vehicle by ID
+ * ************************** */
 async function getVehicleById(inv_id) {
   try {
     const sql = "SELECT * FROM inventory WHERE inv_id = $1";
@@ -19,4 +20,7 @@ async function getVehicleById(inv_id) {
   }
 }
 
-module.exports = { getVehicleById };
+module.exports = {
+  getClassifications,
+  getVehicleById,
+};
