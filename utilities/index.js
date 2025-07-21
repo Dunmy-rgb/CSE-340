@@ -11,9 +11,9 @@ Util.getNav = async function () {
     if (!data || !data.rows) throw new Error("No classification data");
 
     let list = '<ul class="navigation">';
-    list += '<li><a href="/">Home</a></li>';
+    list += "<li>Home</li>";
     data.rows.forEach((row) => {
-      list += `<li><a href="/inv/type/${row.classification_id}">${row.name}</a></li>`;
+      list += `<li><a href="/inv/type/${row.classification_id}">${row.name}</li>`;
     });
     list += "</ul>";
     return list;
