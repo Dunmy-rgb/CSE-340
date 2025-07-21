@@ -6,14 +6,21 @@ const Util = {};
  * Constructs the nav HTML unordered list
  ************************** */
 Util.getNav = async function () {
-  let data = await invModel.getClassifications();
-  let list = '<ul class="navigation">';
-  list += '<li><a href="/">Home</a></li>'; // added link
-  data.rows.forEach((row) => {
-    list += `<li><a href="/inv/type/${row.classification_id}">${row.classification_name}</a></li>`;
-  });
-  list += "</ul>";
-  return list;
+  try {
+    const data = await invModel.getClassifications();
+    if (!data || !data.rows) throw new Error("No classification data");
+
+    let list = '<ul class="navigation">';
+    list += '<li><a href="/">Home</a></li>';
+    data.rows.forEach((row) => {
+      list += `<li><a href="/inv/type/${row.classification_id}">${row.classification_name}</a></li>`;
+    });
+    list += "</ul>";
+    return list;
+  } catch (err) {
+    console.error("Error building nav:", err);
+    return '<ul class="navigation"><li><a href="/">Home</a></li></ul>';
+  }
 };
 
 /* ************************
