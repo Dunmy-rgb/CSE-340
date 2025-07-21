@@ -3,7 +3,7 @@ const utilities = require("../utilities/");
 
 async function buildVehicleDetail(req, res, next) {
   try {
-    const inv_id = parseInt(req.params.inv_id);
+    const inv_id = parseInt(req.params.inventory_id);
     const vehicle = await invModel.getVehicleById(inv_id);
     const nav = await utilities.getNav();
     const detailView = utilities.buildDetailView(vehicle);
