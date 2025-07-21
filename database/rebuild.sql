@@ -39,7 +39,6 @@ VALUES
   (3, 'SUV', 'Sport Utility Vehicles'),
   (4, 'Truck', 'Pickup and heavy-duty trucks');
 
-
 -- Insert inventory data
 INSERT INTO inventory (inventory_id, make, model, year, classification_id, inv_description, inv_image, inv_thumbnail)
 VALUES 
