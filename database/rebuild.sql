@@ -26,6 +26,10 @@ CREATE TABLE inventory (
   inv_thumbnail VARCHAR(255)
 );
 
+
+INSERT INTO account (firstname, lastname, email, account_password, account_type)
+VALUES ('Tony', 'Stark', 'tony@starkindustries.com', 'superSecure123', 'Admin');
+
 -- Insert classification data
 INSERT INTO classification (classification_id, name, description)
 VALUES 
