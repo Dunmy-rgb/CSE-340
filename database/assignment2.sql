@@ -26,12 +26,18 @@ CREATE TABLE inventory (
   inv_thumbnail VARCHAR(255)
 );
 
+
+INSERT INTO account (firstname, lastname, email, account_password, account_type)
+VALUES ('Tony', 'Stark', 'tony@starkindustries.com', 'superSecure123', 'Admin');
+
 -- Insert classification data
 INSERT INTO classification (classification_id, name, description)
 VALUES 
-  (1, 'Camping', 'Outdoor gear for camping'),
-  (2, 'Hiking', 'Gear for hiking'),
-  (3, 'Sport', 'Sport and outdoor activities');
+  (1, 'Custom', 'Customized vehicles'),
+  (2, 'Sedan', 'Standard passenger cars'),
+  (3, 'SUV', 'Sport Utility Vehicles'),
+  (4, 'Truck', 'Pickup and heavy-duty trucks')
+ON CONFLICT (classification_id) DO NOTHING;
 
 -- Insert inventory data
 INSERT INTO inventory (inventory_id, make, model, year, classification_id, inv_description, inv_image, inv_thumbnail)
@@ -43,7 +49,7 @@ VALUES
 SELECT make, model, name
 FROM inventory
 JOIN classification ON inventory.classification_id = classification.classification_id
-WHERE name = 'Sport';
+WHERE name = 'SUV';
 
 -- Update Hummer description (edit "small interiors")
 UPDATE inventory
@@ -54,3 +60,4 @@ WHERE make = 'GM' AND model = 'Hummer';
 UPDATE inventory
 SET inv_image = REPLACE(inv_image, 'images/', 'images/vehicles/'),
     inv_thumbnail = REPLACE(inv_thumbnail, 'images/', 'images/vehicles/');
+

@@ -31,13 +31,13 @@ INSERT INTO account (firstname, lastname, email, account_password, account_type)
 VALUES ('Tony', 'Stark', 'tony@starkindustries.com', 'superSecure123', 'Admin');
 
 -- Insert classification data
-Insert vehicle classifications
 INSERT INTO classification (classification_id, name, description)
 VALUES 
   (1, 'Custom', 'Customized vehicles'),
   (2, 'Sedan', 'Standard passenger cars'),
   (3, 'SUV', 'Sport Utility Vehicles'),
-  (4, 'Truck', 'Pickup and heavy-duty trucks');
+  (4, 'Truck', 'Pickup and heavy-duty trucks')
+ON CONFLICT (classification_id) DO NOTHING;
 
 -- Insert inventory data
 INSERT INTO inventory (inventory_id, make, model, year, classification_id, inv_description, inv_image, inv_thumbnail)
@@ -49,7 +49,7 @@ VALUES
 SELECT make, model, name
 FROM inventory
 JOIN classification ON inventory.classification_id = classification.classification_id
-WHERE name = 'Sport';
+WHERE name = 'SUV';
 
 -- Update Hummer description (edit "small interiors")
 UPDATE inventory

@@ -8,7 +8,17 @@ const isDev = process.env.NODE_ENV === "development";
 // Create the connection pool
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: isDev ? false : { rejectUnauthorized: false }, // SSL only in production
+  ssl: {
+    rejectUnauthorized: false,
+  },
+});
+
+pool.query("SELECT NOW()", (err, res) => {
+  if (err) {
+    console.error("Initial DB connection test failed:", err);
+  } else {
+    console.log("✅ DB connection success:", res.rows);
+  }
 });
 
 // Export the query function so it works the same everywhere
