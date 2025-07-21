@@ -1,4 +1,5 @@
 const invModel = require("../models/inventory-model");
+
 const Util = {};
 
 /* ************************
@@ -7,17 +8,18 @@ const Util = {};
 Util.getNav = async function () {
   let data = await invModel.getClassifications();
   let list = '<ul class="navigation">';
-  list += "<li>Home</li>"; // no <a>
+  list += '<li><a href="/">Home</a></li>'; // added link
   data.rows.forEach((row) => {
-    list += `<li>${row.name}</li>`; // no <a>
+    list += `<li><a href="/inv/type/${row.classification_id}">${row.classification_name}</a></li>`;
   });
   list += "</ul>";
   return list;
 };
 
-module.exports = Util;
-
-function buildDetailView(vehicle) {
+/* ************************
+ * Builds the vehicle detail HTML
+ ************************** */
+Util.buildDetailView = function (vehicle) {
   const priceFormatted = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
@@ -39,6 +41,6 @@ function buildDetailView(vehicle) {
       </div>
     </section>
   `;
-}
+};
 
-module.exports = { ...existingExports, buildDetailView };
+module.exports = Util;
