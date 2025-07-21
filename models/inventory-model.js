@@ -1,22 +1,32 @@
-const db = require("../database"); // ✅ Correct import
+const pool = require("../database");
 
 /* ***************************
  *  Get all classification data
  * ************************** */
 async function getClassifications() {
-  const result = await db.query(
-    "SELECT * FROM public.classification ORDER BY name"
-  );
-  return result.rows;
+  try {
+    const result = await pool.query(
+      "SELECT * FROM public.classification ORDER BY classification_name"
+    );
+    return result;
+  } catch (error) {
+    console.error("Error fetching classifications:", error);
+    throw error;
+  }
 }
 
 /* ***************************
  *  Get a vehicle by ID
  * ************************** */
 async function getVehicleById(inv_id) {
-  const sql = "SELECT * FROM inventory WHERE inv_id = $1";
-  const result = await db.query(sql, [inv_id]); // ✅ use db.query
-  return result.rows[0];
+  try {
+    const sql = "SELECT * FROM inventory WHERE inv_id = $1";
+    const result = await pool.query(sql, [inv_id]);
+    return result.rows[0];
+  } catch (error) {
+    console.error("Error fetching vehicle by ID:", error);
+    throw error;
+  }
 }
 
 module.exports = {
