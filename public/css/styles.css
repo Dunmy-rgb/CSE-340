@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+li {
+  list-style: none;
+}
+
 a {
   text-decoration: none;
 }
@@ -62,9 +66,11 @@ body {
 
 /* index styling */
 
-h1 {
+h2 {
   color: #202020;
   font-size: 1.75rem;
+  width: 350px;
+  margin-bottom: 40px;
 }
 
 /* === CTA Box Styles === */
@@ -219,6 +225,53 @@ h1 {
 
 .vehicle-info {
   flex: 1 1 400px;
+}
+
+/* Grid container */
+#inv-display {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+  list-style: none;
+}
+
+/* Grid items (each vehicle) */
+#inv-display li {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+#inv-display li:hover {
+  transform: translateY(-5px);
+}
+
+/* Vehicle image */
+#inv-display img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* Name and price section */
+.namePrice {
+  margin-top: 0.5rem;
+}
+
+.namePrice h2 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.namePrice span {
+  display: block;
+  margin-top: 0.25rem;
+  font-weight: bold;
+  color: #2c3e50;
 }
 
 @media (max-width: 768px) {

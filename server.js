@@ -6,6 +6,8 @@
 /* ***********************
  * Require Statements
  *************************/
+const inventoryRoute = require("./routes/inventoryRoute");
+const invRoute = require("./routes/inventoryRoute");
 const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
 const env = require("dotenv").config();
@@ -31,6 +33,8 @@ app.set("layout", "./layouts/layout"); // Not at views root
  * Routes
  *************************/
 app.use(static);
+app.use("/inventory", inventoryRoute);
+app.use("/inv", invRoute);
 
 /* ***********************
  * Index route
